@@ -1,0 +1,20 @@
+<!--pages/user-stuinfo/user-stuinfo.wxml-->
+<image class="bg_img" mode="top" src="/pages/images/userbg.jpg" />
+<view class="portrait">
+  <!--由数据库动态获取头像URL  -->
+  <image class="por" src="{{stu_info.stu_photo_url}}"></image>
+</view>
+<view style="background-color:#fff">
+  <!--个人信息由数据库获取继而用数据绑定方式实现  -->
+  <view class="hr"></view>
+  <text style="margin-left:30px;">昵称：{{stu_info.stu_name}}</text>
+
+  <view class="hr"></view>
+  <text style=" margin-left:30px">性别：{{stu_info.stu_gender}}</text>
+  <view class="hr"></view>
+  <text style="margin-left:30px">年龄：{{stu_info.stu_age}}</text>
+  <view class="hr"></view>
+  <text style=" margin-left:30px">年级：{{stu_info.stu_grade}}</text>
+  <view class="hr"></view>
+  <text style="margin-left:30px">手机：{{stu_info.stu_tel}}</text>
+</view>

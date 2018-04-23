@@ -1,0 +1,21 @@
+<template name="courseTemplate">
+  <view class="courseContainer" data-classId="{{classId}}" catchtap="onClassDetail">
+    <view class="rowContainer">
+      <image class="teacherImg" src="{{teacherImg}}"></image>
+      <view class="descritonContainer">
+        <text class="courseName">{{courseName}}</text>
+        <text class="description">{{courseDescription}}</text>
+      </view>
+    </view>
+    <view class="manContainer">
+      <view class="teacher">
+        <text>老师：</text>
+        <text>{{teacher}}</text>
+      </view>
+      <view class="studentNum">
+        <text>招生名额：</text>
+        <text>{{stuName}}</text></view>
+    </view>
+  </view>
+  <view class="hr"></view>
+</template>

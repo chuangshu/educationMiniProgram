@@ -1,0 +1,51 @@
+{
+  "pages": [
+
+    "pages/index/index",
+    "pages/user/user",
+    "pages/search/search",
+    "pages/signIn/signIn",
+    "pages/user-course/user-course",
+    "pages/user-stu/user-stu",
+    "pages/user-tea/user-tea",
+    "pages/user-comment/user-comment",
+    "pages/user-stuinfo/user-stuinfo",
+    "pages/user-teainfo/user-teainfo",
+    "pages/courseList/courseList",
+    "pages/teacherList/teacherList",
+    "pages/aboutUs/aboutUs",
+    "pages/toComment/toComment",
+    "pages/teacherDetail/teacherDetail",
+    "pages/stu_contact/stu_contact",
+    "pages/courseDetail/courseDetail",
+    "pages/courseApply/courseApply",
+    "pages/message-detail/message-detail",
+    "pages/message/message",
+    "pages/evaluate/evaluate"
+  ],
+  "window": {
+    "enablePullDownRefresh": false,
+    "navigationBarBackgroundColor": "#5F9EEB",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "color": "#999999",
+    "selectedColor": "#5F9EEB",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "iconPath": "/pages/images/597581ad44880.png",
+        "selectedIconPath": "pages/images/597581ad448d2.png",
+        "text": "首页",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "iconPath": "/pages/images/597581ad7b7aa.png",
+        "selectedIconPath": "/pages/images/597581ad7b7f7.png",
+        "text": "我的",
+        "pagePath": "pages/user/user"
+      }
+    ]
+  }
+}

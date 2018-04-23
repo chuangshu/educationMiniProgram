@@ -1,0 +1,43 @@
+<import src="/pages/course/course-template.wxml" />
+
+<view class="pick">
+  <view class="picBlock">
+    <picker wx:if="{{isChoose}}" name="grade" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
+      value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        {{multiArray[0][multiIndex[0]]}}   {{multiArray[1][multiIndex[1]]}}
+      </view>
+    </picker>
+    <view wx:else catchtap="noChoose">
+      年级
+      <image class="picImage" src="/pages/images/arrow.png"></image>
+    </view>
+  </view>
+
+  <view class="picBlock">
+    <picker bindchange="subjectChange" value="{{subject}}" range="{{subjects}}" data-choose="subject">
+      <view class="picker">
+        {{subject}}
+        <image class="picImage" src="/pages/images/arrow.png"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class="picBlock">
+    <picker bindchange="methodChange" value="{{method}}" range="{{methods}}" data-choose="method">
+      <view class="picker">
+        {{method}}
+        <image class="picImage" src="/pages/images/arrow.png"></image>
+      </view>
+    </picker>
+  </view>
+</view>
+
+
+<view style="margin-top:40px">
+  <block wx:for="{{courseList}}" wx:for-item="course">
+
+    <template is="courseTemplate" data="{{...course}}"></template>
+
+  </block>
+</view>

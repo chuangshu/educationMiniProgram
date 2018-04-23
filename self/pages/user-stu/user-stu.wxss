@@ -1,0 +1,16 @@
+/* pages/user-stu/user-stu.wxss */
+.bg_img {
+  height: 500rpx;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+.stu_por {
+  width: 157.1875rpx;
+  height: 157.1875rpx;
+  margin-right: 58.59375rpx;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  margin-top: 20px;
+}

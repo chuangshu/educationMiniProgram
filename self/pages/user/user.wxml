@@ -1,0 +1,38 @@
+<image class="bg_img" mode="top" src="/pages/images/userbg.jpg" />
+<!--从缓存获取用户头像  -->
+<image class="thumb_cover" src="{{thumb_cover_url}}"></image>
+<view class="nicknameContainer"style="text-align:center;">
+  <!--名字从缓存中获取微信名 -->
+  <text class="nickname">{{nickname}} 你好</text>
+</view>
+<!--用户界面  -->
+<view style=" background-color: #fff;margin-top:20px;padding-top:3px;" wx:if="{{(user_type!=-1) && (user_type!=0) && (exit == 0)}}">
+  <view bindtap="onInfo" class="user_info" wx:for="{{user}}">
+    <view class="infoContainer" data-id="{{item.id}}" data-content="{{item.content}}">
+      <image class="icon" src="{{item.pic}}"></image>
+      <text data-id="{{item.id}}" data-content="{{item.content}}" style="font-size:18px;padding-bottom:5px;margin-left:20px;margin-top:5px">{{item.content}}</text>
+      <image class="arrow" src="/pages/images/blackarrow.png"></image>
+    </view>
+    <view class="hr"></view>
+
+  </view>
+  
+</view>
+
+<!--游客界面及审核未通过界面  -->
+<view class="vis" wx:if="{{user_type == 0 || exit == 1}}">
+  <text class="vis_alarm">尚未注册\登陆或者注册未通过审核\n请点击按钮进行注册</text>
+  <view class="signin" bindtap="onSignin">
+    <button type="primary">注册\登陆</button>
+  </view>
+</view>
+<!--待审核界面  -->
+<view class="checking" wx:if="{{checking==5 && exit == 0}}">
+  <view class="checking_icon">
+    <icon type="success" size="99" color="#666" />
+  </view>
+  <view style="text-align:center">
+    <text class="checking_alarm">您的申请已提交，请耐心等候审核结果。将于三天内给出结果。</text>
+  </view>
+</view>
+<button wx:if="{{exit == 0 && user_type != 0}}" class="exit" bindtap="exit" type="primary">退出登陆</button>

@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<page>
+  <swiper indicator-dots="true" autoplay="true" circular="ture" duration="1500" style="{{style}}">
+    <block wx:for="{{content}}">
+      <swiper-item>
+        <image style="width:100%" src="{{item.pic}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="nav">
+    <view class="navbox">
+      <view catchtap="onCourseJump">
+        <image class="navImage" style="  width:110rpx; height: 110rpx;" src="/pages/images/courses.png"></image>
+      </view>
+      <view>
+        <text style="font-size:30rpx">全部课程</text>
+      </view>
+    </view>
+    <view class="hr2"></view>
+    <view class="navbox">
+      <view catchtap="onTeacherJump">
+        <image class="navImage" style="  width:110rpx; height: 110rpx;" src="/pages/images/teacher.png"></image>
+      </view>
+      <view>
+        <text style="font-size:30rpx">找老师</text>
+      </view>
+    </view>
+    <view class="hr2"></view>
+    <view class="navbox">
+      <view catchtap="onHomeJump">
+        <image class="navImage" style="  width:110rpx; height: 110rpx;" src="/pages/images/home.png"></image>
+      </view>
+      <view>
+        <text style="font-size:30rpx">关于我们</text>
+      </view>
+    </view>
+  </view>
+  <view class="bar">
+    <view class="title">
+      <text>精选留言</text>
+    </view>
+    <view>
+      <image bindtap="onMessage" class="ar" src="/pages/images/jiantou.png"></image>
+    </view>
+  </view>
+  <!-- <view class="message_board">
+<swiper bindtap="onMessage"  class="message_content"  autoplay="true" circular="ture" duration="1500" style="{{style}}">
+    调用接口和获取家长留言内容
+    <block  wx:for="{{message}}">
+      <swiper-item>
+      <text style="margin-left:20px;">{{item.name}}：\n</text>
+        <text style="margin-left:20px">{{item.content}}（详情可联系平台管理员）</text>
+      </swiper-item>
+    </block>
+  </swiper>
+  </view>
+  <view style="text-align:right">
+  <text class="toMessage" bindtap="onToMessage" >>>>写留言</text>
+</view> -->
+  <scroll-view class="messages" scroll-x="true" style="width:100%">
+    <view style="display:inline-flex;flex-direction:column;" bindtap="onMessage" wx:for="{{message}}">
+      <view class="messages-content">
+        <view class="message-container">
+          <view class="head">
+            <image src="{{item.photo_url}}" class="photo"></image>
+            <text class="name">{{item.name}}</text>
+          </view>
+          <view class="message-content">
+            <text class="message-text" >\n{{item.content}}（详情请咨询平台管理员）</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+</page>

@@ -1,0 +1,7 @@
+/* pages/stu_contact/stu_contact.wxss */
+.bg_img {
+  height: 250rpx;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}

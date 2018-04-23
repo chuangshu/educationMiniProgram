@@ -1,0 +1,4 @@
+<import src="/pages/teacher/teacher-detail-template.wxml"/>
+
+
+<template is="tea_info" data="{{tea_info}}"/>

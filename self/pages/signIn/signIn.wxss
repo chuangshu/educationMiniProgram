@@ -1,0 +1,64 @@
+page {
+  background-color: #d9d9d9;
+}
+
+.signInContainer {
+  background-color: #d9d9d9;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px auto 20px auto;
+}
+
+.titleFont {
+  color: #62b900;
+}
+
+.hr {
+  height: 20px;
+  margin-top: 10px;
+}
+
+.section__title {
+  margin-bottom: 8px;
+  width: 30%;
+  text-align: left;
+  padding-left: 15px;
+}
+
+input {
+  margin-left: 30px;
+  text-align: left;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #fff;
+  padding: 10px 0 5px 5px;
+}
+
+radio {
+  margin-left: 15px;
+}
+
+.img image {
+  height: 100px;
+  width: 100px;
+}
+
+.bottom {
+  height: 30px;
+  background-color: #d9d9d9;
+}
+
+.btn-area {
+  margin: 30px 10px 0px 10px;
+}

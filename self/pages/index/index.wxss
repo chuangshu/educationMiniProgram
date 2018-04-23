@@ -1,0 +1,118 @@
+/**index.wxss**/
+
+page {
+  display: flex;
+  flex-direction: column;
+  background-color: #d7d7d7;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.search_icon {
+  text-align: right;
+}
+
+.search {
+  border: solid #999 1rpx;
+  border-radius: 15px;
+  margin: 10px 45px 0px 45px;
+  background-color: white;
+  opacity: 0.5;
+  vertical-align: middle;
+}
+
+.nav {
+  height: 220rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navbox {
+  display: flex;
+  flex-direction: column;
+  margin: 13px auto 0 auto;
+  text-align: center;
+  font-family: KaiTi;
+
+}
+.title{
+  color: black;
+  font-weight: bold;
+}
+.bar{
+  margin: 10px 0 0 20px ;
+  display: flex;
+  flex-direction: row;
+}
+.ar{
+  margin-top: 5px;
+  padding-left: 500rpx;
+  height: 48rpx;
+  width: 48rpx;
+}
+.messages{
+ white-space: nowrap;
+}
+.messages-content{
+  font-size: 33rpx;
+}
+.message-container{
+   margin:20rpx 0 40rpx 10px;
+  width: 530rpx;
+  white-space: normal;
+}
+.head{
+  flex-direction: row;
+  background-color: #5F9EEB;
+}
+.photo{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin:10px 0 0 10px;
+}
+.name{
+  color: white;
+  margin-left: 15px;
+  position:relative;
+  top:-11px;
+
+}
+.message-content{
+  background-color: #f2f2f2;
+  height: 130px;
+  /* width: 530rpx; */
+   padding-left: 15px; 
+  padding-right: 10px;
+ 
+}
+.message-text{
+  margin-left: 20px;
+}
+.hr2{
+  margin-top: 20rpx;
+  height: 220rpx;
+  width:2.5px;
+  background-color: #d7d7d7;
+}

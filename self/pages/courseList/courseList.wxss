@@ -1,0 +1,25 @@
+/* pages/courseList/courseList.wxss */
+@import '/pages/course/course-template.wxss';
+
+.pick {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+  background-color: #d9d9d9;
+  padding: 10px 0 10px 0;
+  position: fixed;
+  top:0px;
+}
+
+.picBlock {
+  width: 33%;
+  background-color: #d9d9d9;
+}
+
+.picImage {
+  width: 26rpx;
+  height: 26rpx;
+  vertical-align: middle;
+  margin-left: 5px;
+}

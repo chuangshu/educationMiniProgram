@@ -1,0 +1,32 @@
+<image class="bg_img" mode="top" src="/pages/images/userbg.jpg"/>
+  <view style=" background-color:#999;height:30px" wx:if="{{teaing_info}}" >
+    <text class="section_title" >正在上课的老师</text>
+  </view>
+  <view class="hr"></view>
+<block wx:for="{{teaing_info}}" >
+  <view class="teacherContainer" >
+    <image class="teacher.teacherImg" src="{{item.tea_photo_url}}"></image>
+    <view class="detailContainer">
+      <text class="teacherName">{{item.tea_name}}</text>
+      <text class="description">{{item.tea_tel}}</text>
+    </view>
+  </view>
+  <view class="hr"></view>
+</block>
+  <view style=" background-color:#999;height:30px" wx:if="{{teaed_info}}" >
+    <text class="section_title">已上完课的老师</text>
+  </view>
+  <view class="hr"></view>
+  <block wx:for="{{teaed_info}}">
+  <view class="teacherContainer">
+    <image class="teacher.teacherImg" src="{{item.tea_photo_url}}"></image>
+    <view class="detailContainer">
+      <text class="teacherName">{{item.tea_name}}</text>
+      <text class="description">{{item.tea_tel}}</text>
+    </view>
+  </view>
+  <view class="hr"></view>
+</block>
+<view class="alarm" wx:if="{{!teaing_info&& !teaed_info}}">
+<text>您尚未购买任何老师的课程</text>
+</view>

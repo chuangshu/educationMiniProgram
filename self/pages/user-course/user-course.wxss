@@ -1,0 +1,31 @@
+/* pages/user-course/user-course.wxss */
+.bg_img {
+  height: 500rpx;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+.section_title{
+  color: white;
+    vertical-align: middle;
+
+}
+.section{
+  text-align: center;
+}
+.hr{
+  color: #999;
+}
+.hr2{
+  height: 10px;
+  color: white;
+}
+.wantComment{
+  border: 0.5px solid #999;
+  font-size: 15px;
+  position: relative;
+  left:75%;
+  bottom: 50px;
+  padding: 3px;
+  border-radius: 5px;
+}

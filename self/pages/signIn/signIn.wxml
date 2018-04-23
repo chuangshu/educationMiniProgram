@@ -1,0 +1,77 @@
+<form class="signInContainer" bindsubmit="formSubmit" bindreset="formReset">
+  <view class="title">
+    <view class="title-inside">
+      <text class="titleFont">我要注册</text>
+    </view>
+  </view>
+
+
+  <view class="section section_gap">
+    <view class="section__title">注册类型</view>
+    <radio-group name="type">
+      <label><radio value="-1" catchtap="iAmteacher"/>老师</label>
+      <label><radio value="1"  catchtap="iAmStudent" checked= 'true'/>学生</label>
+    </radio-group>
+  </view>
+
+  <view class="section">
+    <view class="section__title">姓名</view>
+    <input name="name" placeholder="请输入您的名字" maxlength="5"/>
+  </view>
+
+  <view class="section section_gap">
+    <view class="section__title">性别</view>
+    <radio-group name="gender">
+      <label><radio value="男"/>我是♂</label>
+      <label><radio value="女"/>我是♀</label>
+    </radio-group>
+  </view>
+
+  <view class="section">
+    <view class="section__title">年龄</view>
+    <input name="age" type="number" placeholder="请输入年龄" maxlength="2" />
+  </view>
+
+
+
+  <view class="section">
+    <view class="section__title">联系方式</view>
+    <input name="tel" type="number" maxlength="11" placeholder="请输入11位联系方式" />
+  </view>
+
+  <view class="img section" catchtap="onChooseImage">
+    <image src="{{imgSrc}}"></image>
+  </view>
+
+  <view wx:if="{{signInType}}">
+    <view class="section">
+      <view class="section__title">登陆密码</view>
+      <input name="password" type="text" placeholder="请输入网站登陆密码" />
+    </view>
+
+
+    <view class="section description" style="flex-direction:column">
+      <view class="section__title">自我简介</view>
+      <textarea name="description" style="text-align:left;padding-left:15px;" placeholder="请尽情地介绍自己" />
+    </view>
+
+  </view>
+  <view wx:else>
+    <view class="section">
+    <view class="section__title">在读年级</view>
+    <picker name="grade" mode="multiSelector"  bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+      </view>
+    </picker>
+  </view>
+  </view>
+
+
+
+  <view class="btn-area">
+    <button type="primary" formType="submit">提交</button>
+  </view>
+
+</form>
+<view class="hr"></view>

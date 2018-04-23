@@ -1,0 +1,38 @@
+/* pages/message-detail/message-detail.wxss */
+.thumb_cover {
+width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin:10px 0 0 10px;
+}
+.detail{
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+.message{
+ padding-left: 15px;
+ font-size: 53rpx;
+}
+.name{
+  margin-left: 15px;
+  position:relative;
+  top:-11px;
+  color: #666;
+}
+
+.head{
+  flex-direction: row;
+}
+.addMessage {
+  margin-left: 84%;
+  display: flex;
+  flex-direction: row;
+   position: fixed;
+  top: 10px; 
+
+}
+.add{
+  height: 80rpx;
+  width: 80rpx;
+}

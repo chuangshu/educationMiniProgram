@@ -1,0 +1,20 @@
+/* pages/teacher/teacher.wxss */
+.por {
+  width: 157.1875rpx;
+  height: 157.1875rpx;
+  margin-right: 58.59375rpx;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  margin-left: -81rpx;
+  margin-top: 20px;
+
+}
+.bg_img {
+  height: 500rpx;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}

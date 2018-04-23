@@ -1,0 +1,38 @@
+/* pages/evaluate/evaluate.wxss */
+page{
+  background-color: #d9d9d9;
+}
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px auto 20px auto;
+}
+.title-inside{
+  text-align: center;
+}
+
+.titleFont {
+  color: #62b900;
+}
+
+.hr {
+  height: 20px;
+  margin-top: 10px;
+}
+
+
+
+.section {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-left: 5px;
+  background-color: white;
+  text-align: left;
+}
+
+.btn-area{
+  margin-top: 40px;
+}
+
+

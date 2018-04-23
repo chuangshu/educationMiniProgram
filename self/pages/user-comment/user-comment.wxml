@@ -1,0 +1,77 @@
+<!--pages/user-comment/user-comment.wxml-->
+<page>
+  <!--学生对老师评价  -->
+  <view wx:if="{{user_type==1 && stu_comment}}">
+    <view class="title">
+      <text>我对老师的评价</text>
+    </view>
+    <view class="commentContent">
+      <view class="stu_comment" wx:for="{{stu_comment}}">
+        <view class="hr"></view>
+        <view class="comment_obj">
+          <text>{{item.tea_name}}老师:</text>
+        </view>
+        <view class="comment_content">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{user_type == 1 && receive_comment}}">
+      <view class="title">
+        <text>老师对我的评价</text>
+      </view>
+      <view class="stu_comment" wx:for="{{receive_comment}}">
+        <view class="hr"></view>
+        <view class="comment_obj">
+          <text>{{item.tea_name}}老师:</text>
+        </view>
+        <view class="comment_content">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+
+  <!--学生未进行评价提示界面  -->
+  <view class="alarm" wx:if="{{user_type==1 && !stu_comment}}">
+    <text>尚未进行评价或评价未通过</text>
+  </view>
+
+
+
+  <!--老师所看到的评价  -->
+  <view wx:if="{{user_type == 2 && tea_comment}}">
+    <view class="title">
+      <text>我收到的评价</text>
+    </view>
+    <view class="tea_comment" wx:for="{{tea_comment}}">
+      <view class="hr"></view>
+      <view class="comment_obj">
+        <text>{{item.stu_name}}:</text>
+      </view>
+      <view class="comment_content">
+        <text>{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{user_type == 2 && send_comment}}">
+    <view class="title">
+      <text>我对学生的评价</text>
+    </view>
+    <view class="tea_comment" wx:for="{{send_comment}}">
+      <view class="hr"></view>
+      <view class="comment_obj">
+        <text>{{item.stu_name}}:</text>
+      </view>
+      <view class="comment_content">
+        <text>{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+  <!--老师未有人对其进行评价界面  -->
+  <view class="alarm" wx:if="{{user_type==2 && !tea_comment}}">
+    <text>尚未有学生对您进行评价</text>
+  </view>
+</page>

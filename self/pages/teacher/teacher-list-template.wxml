@@ -1,0 +1,11 @@
+<template name="teacherListTemplate">
+  <view class="teacherContainer" data-teacherId="{{teacherId}}" catchtap="onteacherDetail">
+    <image class="teacherImg" src="{{teacherImg}}"></image>
+    <view class="detailContainer">
+      <text class="teacherName">{{name}}</text>
+      <text class="gender">{{gender}}</text>
+      <text class="description">{{description}}</text>
+    </view>
+  </view>
+  <view class="hr"></view>
+</template>

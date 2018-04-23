@@ -1,0 +1,8 @@
+<!--pages/stu_contact/stu_contact.wxml-->
+<image class="bg_img" mode="top" src="/pages/images/userbg.jpg"/>
+
+<view style="margin-left:20px" wx:for="{{stu_info}}">
+<text>学生名字：{{item.stu_name}}\n</text>
+<text>联系方式：{{item.stu_tel}}</text>
+<view class="hr"></view>
+</view>

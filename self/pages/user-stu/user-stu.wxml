@@ -1,0 +1,20 @@
+<!--pages/user-stu/user-stu.wxml-->
+<image class="bg_img" mode="top" src="/pages/images/userbg.jpg"/>
+<view class="alarm" wx:if="{{!teastu_info}}">
+<text>您尚没有学生</text>
+</view>
+ <block wx:for="{{teastu_info}}">
+<view bindtap="onTeaStu" data-class_id="{{item.class_id}}" data-stu_id="{{item.stu_id}}" style="margin-left:30rpx">
+<view style="display:flex;flex-direction:row">
+<view>
+<image class="stu_por" src="{{item.stu_photo_url}}"></image>
+</view>
+<view style="margin-top:30px">
+<text>名字：{{item.stu_name}}\n</text>
+<text>所选课程：{{item.class_name}}\n</text>
+<text>联系方式：{{item.stu_tel}}</text>
+</view>
+</view>
+<view class="hr"></view>
+</view>
+</block> 

@@ -1,0 +1,15 @@
+<block wx:for="{{detail}}">
+  <view class="detail">
+    <view class="head">
+      <image class="thumb_cover" src="{{item.photo_url}}"></image>
+      <text class="name">{{item.name}}：\n</text>
+    </view>
+    <view class="message">
+      <text>{{item.content}}</text>
+    </view>
+  </view>
+  <view class="hr"></view>
+</block>
+<view class="addMessage">
+<image src="../images/add.png" bindtap="onAddMessage" class="add"/>
+</view>

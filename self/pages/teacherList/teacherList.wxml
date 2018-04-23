@@ -1,0 +1,9 @@
+<import src="/pages/teacher/teacher-list-template.wxml" />
+<view class="search" bindtap="onSearchTap">
+  <icon type="search" class="search-img" size="13" color="#405f80"></icon>
+  <input type="text" placeholder="名師" placeholder-class="placeholder" disabled="true" />
+</view>
+
+<block wx:for="{{teacherList}}" wx:for-item="teacher">
+  <template is="teacherListTemplate" data="{{...teacher}}"></template>
+</block>

@@ -1,0 +1,72 @@
+page{
+  background-color: #d9d9d9;
+}
+.signInContainer {
+  background-color: #d9d9d9;
+  text-align: center;
+  height: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px auto 20px auto;
+  background-color: #d9d9d9;
+}
+.title-inside{
+  padding-top:20px;
+  padding-bottom:20px;
+  background-color: #d9d9d9;
+}
+
+.titleFont {
+  color: #62b900;
+}
+
+.hr {
+  height: 20px;
+  margin-top: 10px;
+}
+
+.section__title {
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+
+.section {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  margin-left: 5px;
+  padding: 10px 0px 10px 5px;
+  background-color: white;
+}
+
+.img image {
+  height: 100px;
+  width: 100px;
+}
+
+.bottom {
+  height: 30px;
+  background-color: #d9d9d9;
+}
+.picker{
+  margin-left: 20px;
+}
+.br{
+  height: 1px;
+  margin-top: 10px;
+  background-color: #d9d9d9;
+}
+ .btn-area{
+  /* position: fixed;
+  bottom: 20px; */
+  width: 100%;
+} 
+textarea{
+  text-align: left;
+  padding-left: 20px;
+}

@@ -1,0 +1,21 @@
+<!--pages/teacher/teacher.wxml-->
+<text>pages/teacher/teacher.wxml</text>
+<template name="tea_info">
+<cover-image class="bg_img" src="/pages/images/userbg.jpg"></cover-image>
+<view class="portrait">
+  <text style=" margin-left:101rpx">头像：</text>
+  <!--由数据库动态获取头像URL  -->
+  <image class="por" src="{{tea_info.por_url}}"></image>
+</view>
+<view style="margin-top:80px">
+  <!--个人信息由数据库获取继而用数据绑定方式实现  -->
+  <view class="hr"></view>
+  <text style="margin-left:101rpx">昵称：{{tea_info.name}}</text>
+</view>
+<view class="hr"></view>
+<text style=" margin-left:101rpx">性别：{{tea_info.gendar}}</text>
+<view class="hr"></view>
+<text style="margin-left:101rpx">手机号：{{tea_info.tel}}</text>
+<view class="hr"></view>
+<text style="margin-left:101rpx">自我介绍：{{tea_info.tea_introduction}}</text>
+</template>

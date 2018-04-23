@@ -1,0 +1,45 @@
+/* pages/course/course.wxss */
+.courseContainer{
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+.rowContainer{
+  display: flex;
+  flex-direction: row;
+}
+.descritonContainer{
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 900rpx;
+}
+.manContainer{
+  display: flex;
+  flex-direction: row;
+}
+.teacherImg{
+  margin: 10px 10px 5px 0px;
+  height: 100px;
+  width:170px;
+  display: inline-block;
+  overflow: hidden;
+}
+.description{
+  margin-top: 5px;
+}
+
+.teacher{
+  margin-left:8%; 
+}
+.studentNum{
+  margin-left: 20%;
+}
+.courseName{
+  font-size: 25px;
+  font-weight: bold;
+}
+.description{
+  font-size: 18px;
+  color: #666;
+}

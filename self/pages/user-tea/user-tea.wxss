@@ -1,0 +1,40 @@
+.teacherContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 0px 10px 10px 20px;
+}
+
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px
+}
+
+.teacherImg {
+  height: 200rpx;
+  width: 200rpx;
+  
+  margin: auto 0 auto 0;
+}
+.teacherName{
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.gender{
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+.description{
+  font-size:18px;
+}
+.bg_img {
+  height: 500rpx;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+.section_title{
+  color: white;
+  vertical-align: middle;
+  margin-left: 30%;
+}

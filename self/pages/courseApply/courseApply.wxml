@@ -1,0 +1,63 @@
+<form class="signInContainer" bindsubmit="formSubmit" bindreset="formReset">
+  <view class="title">
+    <view class="title-inside">
+      <text class="titleFont">发布课程</text>
+    </view>
+  </view>
+  <view class="section">
+   <view class="section__title">课程名称</view>
+    <picker bindchange="subjectChange" name="subject" value="{{subject}}" range="{{subjects}}">
+      <view class="picker">
+        {{subject}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="section">
+    <view class="section__title">上课时段</view>
+    <input name="time" placeholder="请输入上课时段"/>
+  </view>
+ 
+  <view class="section">
+    <view class="section__title">授课方式</view>
+    <picker name="method" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        {{array[index]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="section">
+    <view class="section__title">授课年级</view>
+    <picker name="grade" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}
+      </view>
+    </picker>
+  </view>
+ 
+  <view class="section">
+    <view class="section__title">人数上限</view>
+    <input name="count" type="number" placeholder="请输入学生人数上限" />
+  </view>
+
+   <view class="section">
+    <view class="section__title">试听人数上限</view>
+    <input name="demo_limit" type="number" placeholder="请输入可试听学生人数上限" />
+  </view>
+
+  <view class="section">
+    <view class="section__title">课程描述</view>
+     <textarea  name="description" type="text" placeholder="请输入课程描述"/>
+  </view>
+  <view class="img section" catchtap="onChooseImage">
+    <image src="{{imgSrc}}"></image>
+  </view>
+
+  
+
+  <view class="btn-area">
+    <button type="primary" formType="submit">提交</button>
+  </view>
+
+</form>

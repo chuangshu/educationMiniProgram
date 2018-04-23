@@ -1,0 +1,20 @@
+<import src="/pages/stars/stars-template.wxml" />
+<form class="signInContainer" bindsubmit="formSubmit" bindreset="formReset">
+  <view class="title">
+    <view class="title-inside">
+      <text class="titleFont">评价课程</text>
+    </view>
+  </view>
+
+  <view class="section" style="flex-direction:column">
+    <textarea name="description" placeholder="...请对课程进行评价" />
+  </view>
+  <view>
+    <template is="starsTemplate" data="{{stars}}"></template>
+    <input name="score" value="{{score}}" disabled="true" style="display:none"/>
+  </view>
+  <view class="btn-area">
+    <button type="primary" formType="submit">提交</button>
+  </view>
+
+</form>

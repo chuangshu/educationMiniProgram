@@ -1,0 +1,97 @@
+/* pages/user/user.wxss */
+page{
+  background-color: #e4e4e4;
+}
+.thumb_cover {
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 58.59375rpx;
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  left: 15%;
+  margin-left: -81rpx;
+  margin-top: 90rpx;
+}
+
+.bg_img {
+  height: 200rpx;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.nickname {
+  /* margin-left:30%; */
+  font-size: 22px;
+  font-weight: 5px;
+  color: #fff;
+}
+
+.icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.user_info{
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-top: 5px;
+  align-items: center;
+ 
+}
+.infoText{
+  width: 100%;
+  margin-left: 10px;
+}
+
+.vis{
+  margin: 100px 20rpx 50px 20rpx ;
+  text-align: center;
+}
+
+.signin{
+  padding-top: 50px;
+}
+
+.checking_icon{
+  margin: 0 auto 0 auto;
+  padding-bottom: 50px;
+}
+
+.checking{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checking_alarm{
+  font-size: 20px;
+  text-align: center;
+}
+.nicknameContainer{
+   position:absolute;
+  top :10%;
+  left:32%;
+}
+.infoContainer{
+  display: flex;
+  direction: row;
+  width: 100%;
+ 
+}
+.arrow{
+  height: 30px;
+  width: 30px;
+  position: fixed;
+  right: 0px;
+}
+.hr{
+  height: 1px;
+}
+.exit{
+  margin-top: 80px;
+}

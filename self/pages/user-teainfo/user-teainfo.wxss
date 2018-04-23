@@ -1,0 +1,2 @@
+/* pages/user-teainfo/user-teainfo.wxss */
+@import '/pages/teacher/teacher-detail-template.wxss';

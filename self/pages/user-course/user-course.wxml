@@ -1,0 +1,93 @@
+<!--pages/user-course/user-course.wxml-->
+<image class="bg_img" mode="top" src="/pages/images/userbg.jpg" />
+
+<template name="stu_course_detail">
+  <view style="margin:10px auto 10px 20px"  >
+    <text>课程名字：{{grade}}{{subject}}\n</text>
+    <text>授课老师：{{tea_name}}\n</text>
+    <text>剩余课时：{{remain_hour}}\n</text>
+    <text>最新成绩：{{score}}\n</text>
+    <text class="wantComment" bindtap="onStuCourse" data-classId="{{class_id}}">我要评论</text>
+  </view>
+  
+  <view class="hr"></view>
+</template>
+
+
+<template name="tea_course_detail">
+  <view style="margin:10px auto 10px 20px" bindtap="onTeaCourse" data-classId="{{class_id}}">
+    <text>课程名字：{{grade}}{{subject}}\n</text>
+    <!--已选学生人数  -->
+    <text>学生人数：{{stu_count}}\n</text>
+    <text>上课时间段：{{class_time}}\n</text>
+    <text>上课方式：{{method==1 ? '店铺辅导':'上门辅导'}}</text>
+  </view>
+  <view class="hr"></view>
+</template>
+
+
+<!--学生查看我的课程界面  -->
+<!--学生未选课提示界面  -->
+<view class="alarm" wx:if="{{user_type==1 && !stu_clsing && !stu_clsed && !book}}">
+  <text>您还未购买任何课程</text>
+</view>
+<view wx:if="{{user_type==1}}">
+  <view class="section" wx:if="{{stu_clsing!=''}}" style=" background-color:#999;height:30px">
+    <text class="section_title">正在上课的课程</text>
+  </view>
+  <view  wx:for="{{stu_clsing}}" wx:if="{{user_type==1 }}">
+    <template is="stu_course_detail" data="{{...item}}" />
+  </view>
+
+  <view class="section" wx:if="{{book}}" style=" background-color:#999;height:30px">
+    <text class="section_title">预约试听</text>
+  </view>
+  <view wx:for="{{book}}" wx:if="{{user_type==1 }}">
+    <template is="stu_course_detail" data="{{...item}}" />
+  </view>
+
+  <view class="section" wx:if="{{stu_clsed}}" style=" background-color:#999;height:30px">
+    <text class="section_title">已结课的课程</text>
+  </view>
+  <view wx:for="{{stu_clsed}}" wx:if="{{user_type==1 }}">
+    <template is="stu_course_detail" data="{{...item}}" />
+  </view>
+</view>
+
+
+
+<!--老师查看我的课程页面  -->
+<!--老师未发布课程提示界面  -->
+<view class="alarm" wx:if="{{user_type == 2 && !tea_clsing && !tea_clsed && !tea_fail && !tea_needcheck}}">
+  <text>您尚未发布任何课程</text>
+</view>
+<view wx:if="{{user_type==2}}">
+  <view class="section" wx:if="{{tea_clsing}}" style=" background-color:#999;height:30px">
+    <text class="section_title">正在上课的课程</text>
+  </view>
+  <block wx:for="{{tea_clsing}}">
+    <template is="tea_course_detail" data="{{...item}}" />
+  </block>
+  <view class="hr2"></view>
+  <view class="section" wx:if="{{tea_needcheck}}" style="background-color:#999;height:30px">
+    <text class="section_title">正在审核的课程</text>
+  </view>
+  <block wx:for="{{tea_needcheck}}">
+    <template is="tea_course_detail" data="{{...item}}" />
+  </block>
+  <view class="hr2"></view>
+  <view class="section" wx:if="{{tea_clsed}}" style=" background-color:#999;height:30px">
+    <text class="section_title">已结课的课程</text>
+  </view>
+  <block wx:for="{{tea_clsed}}">
+    <template is="tea_course_detail" data="{{...item}}" />
+  </block>
+  <view class="hr2"></view>
+  <view class="section" wx:if="{{tea_fail}}" style="background-color:#999;height:30px">
+    <text class="section_title">审核失败的课程</text>
+  </view>
+  <block wx:for="{{tea_fail}}">
+    <template is="tea_course_detail" data="{{...item}}" />
+  </block>
+  <button type="primary" bindtap="onApply" data-id="{{id}}">发布课程</button>
+</view>

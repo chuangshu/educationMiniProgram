@@ -1,0 +1,16 @@
+<import src="/pages/teacher/teacher-list-template.wxml" />
+<view class="search">
+  <icon type="search" class="search-img" size="13" color="#405f80"></icon>
+  <input type="text" placeholder="名師" placeholder-class="placeholder" bindconfirm="onSearch" />
+  <image src="/pages/images/xx.png" class="xx-img" bindtap="onCancelImgTap"></image>
+</view>
+
+<view wx:if="{{isExist== 1}}">
+  <block wx:for="{{teacherList}}" wx:for-item="teacher">
+    <template is="teacherListTemplate" data="{{...teacher}}"></template>
+  </block>
+</view>
+<view wx:elif="{{isExist== -1}}">
+  <text>该老师不存在或未通过审核</text>
+</view>
+<view wx:else></view>

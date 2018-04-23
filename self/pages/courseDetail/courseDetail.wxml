@@ -1,0 +1,56 @@
+<import src="/pages/stars/stars-template.wxml" />
+<view class="shopContainer">
+  <image class="head-img" src="{{class_photo}}" mode="aspectFill" />
+
+  <view class="font">
+    <text class="shopName">{{subject}}</text>
+    <text class="fee">
+      <text class="RMB">￥{{fee}}</text>/课时
+    </text>
+
+    <view class="teacher">
+      <text class="beforName">授课老师</text>
+      <text class="teacherName">{{teacher}}</text>
+    </view>
+
+    <view class="teacher">
+      <text class="beforName">剩余人数/招生名额</text>
+      <text class="teacherName">{{remain}}/{{stu_count}}</text>
+    </view>
+
+    <view class="teacher">
+      <text class="beforName">已选</text>
+      <view class="number">
+        <image class="num" data-numberDetail="{{numberDetail-1}}" catchtap="onNum" src="/pages/images/sub.png"></image>
+        <text class="numDetail">{{numberDetail}}</text>
+        <image class="num" data-numberDetail="{{numberDetail+1}}" catchtap="onNum" src="/pages/images/plus.png"></image>
+      </view>
+    </view>
+
+    <view class="hr"></view>
+
+    <text class="beforName">课程简介</text>
+    <text> {{description}}
+    </text>
+  </view>
+  <view class="hr"></view>
+
+  <view class="commentContainer">
+    <text class="beforName">课程评价</text>
+    <block wx:for="{{commentList}}" wx:for-item="comment">
+
+      <text class="commentName">{{comment.commentName}}:</text>
+      <template is="starsTemplate" data="{{...comment}}"></template>
+      <text class="commentContent">{{comment.commentContent}}</text>
+      <view class="hr"></view>
+    </block>
+  </view>
+
+
+
+</view>
+
+<view class="shop-btn">
+  <button catchtap="onShop" data-demo = "1">试听</button>
+  <button catchtap="onShop" type="primary" data-demo = "0">购买课时</button>
+</view>

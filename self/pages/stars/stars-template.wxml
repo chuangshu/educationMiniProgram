@@ -1,0 +1,12 @@
+<template name="starsTemplate">
+  <view class="stars-container">
+    <view class="section__title">评分</view>
+    <view class="stars">
+      <block wx:for="{{stars}}" wx:for-item="i">
+        <image wx:if="{{i}}" class="star-img" src="/pages/images/star.png" catchtap="stars{{index}}"></image>
+        <image wx:else class="star-img" src="/pages/images/none-star.png" catchtap="stars{{index}}"></image>
+      </block>
+    </view>
+    <text class="star-score">{{score}}</text>
+  </view>
+</template>

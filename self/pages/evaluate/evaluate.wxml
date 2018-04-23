@@ -1,0 +1,15 @@
+<form class="signInContainer" bindsubmit="formSubmit" bindreset="formReset">
+  <view class="title">
+    <view class="title-inside">
+      <text class="titleFont">评价学生</text>
+    </view>
+  </view>
+
+  <view class="section" style="flex-direction:column">
+    <textarea name="description" placeholder="...请对学生进行评价" />
+  </view>
+ 
+  <view class="btn-area">
+    <button type="primary" formType="submit">提交</button>
+  </view>
+  </form>
