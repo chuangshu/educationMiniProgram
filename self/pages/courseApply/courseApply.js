@@ -1,3 +1,5 @@
+import { Config } from '../../utils/config.js';
+
 Page({
   data: {
     array: ['上门辅导', '店铺辅导'],
@@ -60,25 +62,22 @@ Page({
     console.log(postData);
     //先上传图片，获取图片外网地址
     wx.uploadFile({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/uploadimg/upload_file.php',
+      url: Config.uploadUrl,
       filePath: this.data.imgSrc,
       name: 'file',
       success: function (res) {
-        var resultData = JSON.parse(res.data);
-        console.log(resultData.photo_url)
-        var data = resultData.photo_url;//返回图片服务器地址
-
-        postData.class_photo = data;//将图片外网地址加入到postData中
+        postData.class_photo = JSON.parse(res.data).photo_url;//将图片外网地址加入到postData中
         //发送注册数据postData到后台
         wx.request({
-          url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+          url: Config.baseUrl,
           data: postData,
           header: {
             'content-type': 'application/json'
           },
           success: function (res) {
             wx.hideLoading();
-            var status = JSON.parse(res.data).status
+            console.log(res.data);
+            var status = res.data.status
             if(status){
              wx.hideLoading();
                   wx.showModal({

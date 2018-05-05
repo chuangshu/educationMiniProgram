@@ -2,7 +2,7 @@
 //调用接口根据该老师的id获取该老师的学生的信息，其中包括学生头像URL，学生名字，学生所选课程，学生联系方式
 //var stu_info=
 //this.setData()
-
+import {Config} from '../../utils/config.js';
 Page({
 
   /**
@@ -18,7 +18,7 @@ Page({
     var id = wx.getStorageSync('id');
     var that = this;
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+      url: Config.baseUrl, //开发者服务器中转接口
       data: {
         c: 'WxLoadTeaPersonal',
         a: 'loadTeaStuList',

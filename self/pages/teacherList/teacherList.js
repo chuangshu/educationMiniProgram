@@ -1,4 +1,5 @@
 // pages/teacherList/teacherList.js
+import {Config} from '../../utils/config.js';
 Page({
 
   /**
@@ -27,7 +28,7 @@ Page({
     var that = this;
     var teacherList = []
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
 
       data: {//加载全部老师的列表
         c: 'WxLoadCls',
@@ -39,7 +40,7 @@ Page({
         console.log(res)
         //console.log(res['data']);
 
-        var tea_List = JSON.parse(res.data)
+        var tea_List = res.data;
         //console.log(tea_List);
         for (var idx in tea_List) {
           var teacherId = tea_List[idx].tea_id;

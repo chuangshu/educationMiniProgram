@@ -1,5 +1,6 @@
 // pages/evaluate/evaluate.js
 var util = require('../../utils/util.js');
+import {Config} from '../../utils/config.js';
 Page({
 
   /**
@@ -38,7 +39,7 @@ Page({
     }
 
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
       data: postData,
       header: {
         'content-type': 'application/json'

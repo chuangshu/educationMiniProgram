@@ -1,4 +1,5 @@
 // pages/toComment/toComment.js
+import {Config} from '../../utils/config.js';
 Page({
 
   /**
@@ -26,7 +27,7 @@ Page({
       stu_id:this.data.stuId
     }
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
       data: postData,
       header: {
         'content-type': 'application/json'

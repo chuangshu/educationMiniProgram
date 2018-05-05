@@ -1,6 +1,7 @@
 var app = require('../../app.js')
 var util = require('../../utils/util.js');
 var stu_id ;
+import {Config} from '../../utils/config.js';
 Page({
 
   data: ({
@@ -134,7 +135,7 @@ Page({
       }
       //必须先获取图片在服务器上的地址（即外网地址）
       wx.uploadFile({
-        url: 'https://47207130.huixuehuijiao.cn/application/controllers/uploadimg/upload_file.php',
+        url: Config.uploadUrl,
         filePath: this.data.imgSrc,
         name: 'file',
         success: function (res) {
@@ -148,18 +149,18 @@ Page({
           if (that.checkForm(postData)) {
             //发送注册数据postData到后台
             wx.request({
-              url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+              url: Config.baseUrl,
               data: postData,
               header: {
                 'content-type': 'application/json'
               },
               success: function (res) {
-                console.log(JSON.parse(res.data));
-                var status = JSON.parse(res.data).status
+                console.log(res.data);
+                var status = res.data.status
                 if (status == 1) {//状态值为1时注册成功
                   //刷新缓存
                   wx.request({
-                    url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+                    url: Config.baseUrl,
                     data: {
                       c: 'WxLogin',
                       a: 'loginPersonalCenter',
@@ -190,7 +191,7 @@ Page({
                   });
                   //新学生注册后，给他添加所有审核通过课程的一次试听机会
                   wx.request({
-                    url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+                    url: Config.baseUrl,
                     data: {
                       c: 'WxDemoLesson',
                       a: 'newStuDemo',
@@ -252,7 +253,7 @@ Page({
 
       //必须先获取图片在服务器上的地址（即外网地址）
       wx.uploadFile({
-        url: 'https://47207130.huixuehuijiao.cn/application/controllers/uploadimg/upload_file.php',
+        url: Config.uploadUrl,
         filePath: this.data.imgSrc,
         name: 'file',
         success: function (res) {
@@ -265,17 +266,17 @@ Page({
           if (that.checkForm(postData)) {
             //发送注册数据postData到后台
             wx.request({
-              url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+              url: Config.baseUrl,
               data: postData,
               header: {
                 'content-type': 'application/json'
               },
               success: function (res) {
-                var status = JSON.parse(res.data).status
+                var status = res.data.status
                 if (status == 1) {//状态值为1时注册成功
                   //刷新缓存
                   wx.request({
-                    url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+                    url: Config.baseUrl,
                     data: {
                       c: 'WxLogin',
                       a: 'loginPersonalCenter',
@@ -285,7 +286,7 @@ Page({
                     // header: {}, // 设置请求的 header    
                     success: function (res) {
                       console.log(res.data);//data里面是微信api返回的session_key,openid，json格式的字符串
-                      var obj = JSON.parse(res.data);//将json格式对象化
+                      var obj = res.data;//将json格式对象化
                       //obj.openid 获取的openid
                       // obj.expires_in = Date.now() + res.data.expires_in;//存进缓存中，用于在if中判断是否过期
                       console.log('12300');

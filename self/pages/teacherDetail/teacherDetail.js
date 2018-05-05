@@ -1,4 +1,5 @@
 // pages/teacherDetail/teacherDetail.js
+import {Config} from '../../utils/config.js';
 Page({
 
     /**
@@ -19,7 +20,7 @@ Page({
         var id = wx.getStorageSync('id');
         var that = this;
         wx.request({
-          url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+          url: Config.baseUrl, //开发者服务器中转接口
             data: {
                 c: 'WxLoadStuPersonal',
                 a: 'loadTeaInfo',
@@ -30,7 +31,7 @@ Page({
             },
             success: function (res) {//res是一个对象，里面有若干key
                 console.log(res.data)
-                var obj = JSON.parse(res.data);
+                var obj = res.data;
                 that.setData({
                     tea_info: obj
                 })
@@ -38,7 +39,7 @@ Page({
             //res.statusCode是开发者服务器状态码
         });
         wx.request({
-          url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+          url: Config.baseUrl, //开发者服务器中转接口
             data: {
                 c: 'WxLoadTeaPersonal',
                 a: 'loadTeaClsingList',//加载老师的“我的课程”里正在进行的课
@@ -49,7 +50,7 @@ Page({
             },
             success: function (res) {//res是一个对象，里面有若干key
                 console.log(res.data)
-                var obj = JSON.parse(res.data);
+                var obj = res.data;
                 that.setData({
                     courseList: obj
                 })

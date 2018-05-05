@@ -1,5 +1,6 @@
 // pages/message/message.js
 var util = require('../../utils/util.js');
+import {Config} from '../../utils/config.js';
 Page({
 
   /**
@@ -41,12 +42,12 @@ Page({
       }
 
       wx.request({
-          url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+        url: Config.baseUrl,
         data: postData,
         method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
         // header: {}, // 设置请求的 header
         success: function (res) {
-          var res = JSON.parse(res.data).status;
+          var res = res.data.status;
           if (res == 1) {
             wx.showModal({
               title: "留言成功",

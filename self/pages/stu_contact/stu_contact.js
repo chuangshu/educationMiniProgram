@@ -1,31 +1,12 @@
 // pages/stu_contact/stu_contact.js0
+import {Config} from '../../utils/config.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // stu_info: [{
-    //   "por_url": "/pages/images/1.jpg",
-    //   "name": "卓裕轩",
-    //   "selected_course": "小学语文",
-    //   "tel": "66666666"
-    // }, {
-    //   "por_url": "/pages/images/1.jpg",
-    //   "name": "卓裕轩",
-    //   "selected_course": "小学语文",
-    //   "tel": "66666666"
-    // }, {
-    //   "por_url": "/pages/images/1.jpg",
-    //   "name": "卓裕轩",
-    //   "selected_course": "小学语文",
-    //   "tel": "66666666"
-    // }, {
-    //   "por_url": "/pages/images/1.jpg",
-    //   "name": "卓裕轩",
-    //   "selected_course": "小学语文",
-    //   "tel": "66666666"
-    // }]
+   
   },
 
   /**
@@ -42,7 +23,7 @@ Page({
   //   stu_info
   // )
   wx.request({
-    url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+    url: Config.baseUrl, //开发者服务器中转接口
     data: {
       c: 'WxLoadTeaPersonal',
       a: 'loadTeaClsingStuInfo',//“我的课程”中点击一门正在上的课，返回这门课所有学生的信息

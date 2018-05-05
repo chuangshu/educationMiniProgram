@@ -8,7 +8,7 @@
 // this.setData();
 //获取学生或者老师的id
 
-
+import {Config} from '../../utils/config.js';
 Page({
 
   /**
@@ -55,7 +55,7 @@ Page({
     var that = this;
     if(user_type==2){
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+      url: Config.baseUrl, //开发者服务器中转接口
       data: {
         c: 'WxLoadTeaPersonal',
         a: 'loadTeaClsingList',
@@ -65,7 +65,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {//res是一个对象，里面有若干key
-        var obj = JSON.parse(res.data);
+        var obj = res.data;
         console.log(obj)
         that.setData({
           tea_clsing: obj
@@ -73,7 +73,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+      url: Config.baseUrl, //开发者服务器中转接口
       data: {
         c: 'WxLoadTeaPersonal',
         a: 'loadTeaClsNeedCheckList',
@@ -83,7 +83,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {//res是一个对象，里面有若干key
-        var obj = JSON.parse(res.data);
+        var obj = res.data;
         console.log(obj)
     
         that.setData({
@@ -92,7 +92,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+      url: Config.baseUrl, //开发者服务器中转接口
       data: {
         c: 'WxLoadTeaPersonal',
         a: 'loadTeaClsedList',
@@ -102,7 +102,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {//res是一个对象，里面有若干key
-        var obj = JSON.parse(res.data);
+        var obj = res.data;
         console.log(obj)
 
         that.setData({
@@ -111,7 +111,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+      url: Config.baseUrl, //开发者服务器中转接口
       data: {
         c: 'WxLoadTeaPersonal',
         a: 'loadTeaClsFailList',
@@ -121,7 +121,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {//res是一个对象，里面有若干key
-        var obj = JSON.parse(res.data);
+        var obj = res.data;
         console.log(obj)
         // if(obj.method == -1){
         //   obj.method = '上门辅导'
@@ -136,7 +136,7 @@ Page({
     }
     else{
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+      url: Config.baseUrl, //开发者服务器中转接口
       data: {
         c: 'WxLoadStuPersonal',
         a: 'loadStuClsingList',
@@ -146,7 +146,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {//res是一个对象，里面有若干key
-        var obj = JSON.parse(res.data);
+        var obj = res.data;
         var book=[] ;
         var stu_clsing=[];
         for (var idx in obj) {
@@ -163,7 +163,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+      url: Config.baseUrl, //开发者服务器中转接口
       data: {
         c: 'WxLoadStuPersonal',
         a: 'loadStuClsedList',
@@ -173,7 +173,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {//res是一个对象，里面有若干key
-        var obj = JSON.parse(res.data);
+        var obj = res.data;
         that.setData({
           stu_clsed: obj
         })

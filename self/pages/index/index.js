@@ -1,4 +1,6 @@
 var globalData = require('../../glodata.js')//index.js
+import { Config } from '../../utils/config.js';
+
 //获取应用实例
 var openid = '';
 var app = getApp()
@@ -52,11 +54,12 @@ Page({
     wx.navigateTo({
       url: '/pages/aboutUs/aboutUs'
     })
-  },
+  }
+  ,
   onLoad: function () {
     var that = this;
     wx.request({
-      url: 'https://api.huixuehuijiao.cn/tp3/admin.php',
+      url: Config.baseUrl,
       data: {
         c: 'WxLoadMessageBoard',
         a: 'loadAllPass',
@@ -66,13 +69,13 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.data)
         that.setData({
           message: res.data
         })
       }
     })
-  },
+  }
+  ,
   onMessage: function () {
     wx.navigateTo({
       url: '/pages/message-detail/message-detail',
@@ -80,7 +83,8 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
-  },
+  }
+  ,
   onToMessage: function () {
     wx.navigateTo({
       url: '/pages/message/message',

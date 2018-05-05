@@ -1,3 +1,5 @@
+import { Config } from '../../utils/config.js';
+
 // pages/courseDetail/courseDetail.js
 var classid;
 var ClsVer;
@@ -235,15 +237,15 @@ Page({
     var that = this;
     //获取课程信息
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
       data: {
         c: 'WxLoadCls',
         a: 'chooseCls',//点击一门课程查看详细信息
         class_id: classid//
       },//返回这门课程所有信息
       success: function (res) {
-        console.log(JSON.parse(res.data));
-        var detail = JSON.parse(res.data)
+        console.log(res.data);
+        var detail = res.data;
         tea_id = detail.tea_id;
         var subject = detail.subject;
         var fee = detail.fee;
@@ -269,14 +271,14 @@ Page({
     });
     //获取课程评论
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
       data: {
         c: 'WxLoadCls',
         a: 'loadClsComment',//点击课程里的评论区拉取该课程所有评论 
         class_id: classid//
       },//返回该门课所有评论
       success: function (res) {
-        var comment_List = JSON.parse(res.data)
+        var comment_List = res.data;
         var commentList = [];
         // console.log(comment_List)
         for (var idx in comment_List) {
@@ -336,7 +338,7 @@ Page({
     if ((user_type == 1) && (exit == 0)) {
       //买课前确认没有重复购课
       wx.request({
-        url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+        url: Config.baseUrl,
         data: {
           c: 'WxBuyCls',
           a: 'checkRepeatCls',
@@ -349,7 +351,7 @@ Page({
           console.log(JSON.parse(res.data))
           if (status == 0) {//status=0，课程没有重复，允许购买
             wx.request({
-              url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+              url: Config.baseUrl,
               data: {
                 c: 'WxBuyCls',
                 a: 'readVerCountFull',//返回课程的版本、已选人数、是否满人（-1未满，1已满）
@@ -363,7 +365,7 @@ Page({
                 ClsVer = obj.version;
                 if (obj.full == -1) {
                   wx.request({
-                    url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+                    url: Config.baseUrl,
                     data: {
                       c: 'WxBuyCls',
                       a: 'tryUpdateStucount',//传入id和ver来试图更改这个id的stu_count+1，若版本号已被更新，则试图更改失败
@@ -374,7 +376,7 @@ Page({
                       var obj = JSON.parse(res.data)
                       if (obj.result == 1) {
                         wx.request({
-                          url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+                          url: Config.baseUrl,
                           data: {
                             c: 'WxBuyCls',
                             a: 'updateVer',//将这门课的ver+1，阻止其他版本旧的请求，实现锁课成功
@@ -383,7 +385,7 @@ Page({
                           }, success: function (res) {
                             console.log("开始调用微信支付接口")
                             wx.request({
-                              url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+                              url: Config.baseUrl,
                               data: {
                                 c: 'WxPay',
                                 a: 'unifiedorder',
@@ -425,7 +427,7 @@ Page({
                                         })
                                       }else{
                                       wx.request({
-                                        url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+                                        url: Config.baseUrl,
                                         data: {
                                           c: 'WxDemoLesson',
                                           a: 'endChance',
@@ -436,7 +438,7 @@ Page({
                                       })}
                                     }
                                     wx.request({
-                                      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+                                      url: Config.baseUrl,
                                       data: {
                                         c: 'WxBuyCls',
                                         a: 'updateScore',
@@ -466,7 +468,7 @@ Page({
                                     //支付失败
                                     console.log(res)
                                     wx.request({
-                                      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+                                      url: Config.baseUrl,
                                       data: {
                                         c: 'WxBuyCls',
                                         a: 'rollBack',

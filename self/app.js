@@ -1,3 +1,5 @@
+import { Config } from './utils/config.js';
+
 var globalData = require('./glodata.js')//index.js
 var openid = '';
 App({
@@ -22,7 +24,7 @@ App({
             }
           });
           wx.request({
-            url: 'https://api.huixuehuijiao.cn/login_api.php',
+            url: Config.loginUrl,
             data: {
               appid: globalData.globalData.appid,//需要glodata.js
               secret: globalData.globalData.secert,

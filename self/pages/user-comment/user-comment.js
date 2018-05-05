@@ -4,6 +4,8 @@
 //传递参数 openid
 //var comment=  
 //this.setData({comment:comment});
+
+import  {Config} from '../../utils/config.js';
 Page({
 
   /**
@@ -23,7 +25,7 @@ Page({
     var that = this;
     if(user_type==2){
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+      url: Config.baseUrl, //开发者服务器中转接口
       data: {
         c: 'WxLoadTeaPersonal',
         a: 'loadComment',
@@ -42,7 +44,7 @@ Page({
       //res.statusCode是开发者服务器状态码
     })
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
       data:{
         c: 'WxLoadTeaPersonal',
         a: 'loadMyComment',
@@ -62,7 +64,7 @@ Page({
     }
     else{
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+      url: Config.baseUrl, //开发者服务器中转接口
       data: {
         c: 'WxLoadStuPersonal',
         a: 'loadComment',
@@ -81,7 +83,7 @@ Page({
       //res.statusCode是开发者服务器状态码
     })
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
       data:{
         c: 'WxLoadStuPersonal',
         a: 'loadTeaComment',

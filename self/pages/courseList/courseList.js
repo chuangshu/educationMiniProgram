@@ -1,5 +1,5 @@
 // pages/courseList/courseList.js
-
+import{Config} from '../../utils/config.js';
 Page({
 
   /**
@@ -49,7 +49,7 @@ Page({
   onLoad: function () {
     var that = this;
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
 
       //加载全部课程界面
       data: {
@@ -63,7 +63,7 @@ Page({
       method: 'GET', // 
 
       success: function (res) {
-        var course_List = JSON.parse(res.data)
+        var course_List = res.data;
         var courseList = [];
         console.log(course_List)
         for (var idx in course_List) {
@@ -105,7 +105,7 @@ Page({
     var subject = this.data.postData.subject;
     console.log(grade + method + method)
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
 
       //加载全部课程界面
       data: {
@@ -119,7 +119,7 @@ Page({
       method: 'GET', // 
 
       success: function (res) {
-        var course_List = JSON.parse(res.data)
+        var course_List = res.data;
         var courseList = [];
         console.log(course_List)
         for (var idx in course_List) {

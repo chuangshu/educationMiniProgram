@@ -5,7 +5,7 @@
 // this.setData(
 //   {stu_info:stu_info}
 // )
-
+import{Config} from '../../utils/config.js';
 Page({
 
   /**
@@ -21,7 +21,7 @@ Page({
     var id = wx.getStorageSync('id');
     var that = this;
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php', //开发者服务器中转接口
+      url: Config.baseUrl, //开发者服务器中转接口
       data: {
         c: 'WxLoadStuPersonal',
         a: 'loadStuInfo',
@@ -32,7 +32,7 @@ Page({
       },
       success: function (res) {//res是一个对象，里面有若干key
         console.log(res)
-        var obj = JSON.parse(res.data);
+        var obj = res.data;
         that.setData({
           stu_info:obj
         })

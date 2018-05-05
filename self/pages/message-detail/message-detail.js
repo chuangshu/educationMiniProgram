@@ -1,4 +1,5 @@
 // pages/message-detail/message-detail.js
+import{Config}from'../../utils/config.js';
 Page({
 
   /**
@@ -13,7 +14,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-        url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
       data: {
         c: 'WxLoadMessageBoard',
         a: 'loadAllPass',
@@ -23,7 +24,7 @@ Page({
         'content-type': 'application/json'
       }, success: function (res) {
         console.log(res.data)
-        var obj = JSON.parse(res.data);
+        var obj = res.data;
         that.setData({
           detail: obj
         })

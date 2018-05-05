@@ -5,6 +5,7 @@ var checking;
 var visitor;
 var nickname;
 var content;
+import {Config} from '../../utils/config.js'
 //调用接口获取用户名
 //调用接口获取头像URL
 Page({
@@ -54,7 +55,7 @@ Page({
   onSignin: function (e) {
     var that = this;
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
       data: {
         c: 'WxLogin',
         a: 'loginPersonalCenter',
@@ -64,15 +65,37 @@ Page({
       // header: {}, // 设置请求的 header    
       success: function (res) {
         console.log(res.data);//data里面是微信api返回的session_key,openid，json格式的字符串
-        var obj = JSON.parse(res.data);//将json格式对象化
+        var obj = res.data;//将json格式对象化
+
+
         if (obj.type == 0) {
           wx.navigateTo({
             url: '/pages/signIn/signIn',
           });
         }else{
+          content = (obj.type == 2) ? "我的学生" : "我的老师";
+      
           that.setData({
             user_type : obj.type,
-          })
+            user: [{
+              "pic": "/pages/images/info.png",
+              "content": "个人信息",
+              "id": "0"
+            }, {
+              "pic": "/pages/images/student.png",
+              "content": content,
+              "id": "1"
+            },
+            {
+              "pic": "/pages/images/comments.png",
+              "content": "我的评价",
+              "id": "2"
+            }, {
+              "pic": "/pages/images/course.png",
+              "content": "我的课程",
+              "id": "3"
+            }]
+          });
         }
       }
     });
@@ -92,7 +115,8 @@ Page({
     this.setData({
       exit: wx.getStorageSync('exit')
     })
-  },
+  }
+  ,
   onLoad: function (options) {
     console.log('this is user load');
     user_type = wx.getStorageSync('type');
@@ -127,10 +151,10 @@ Page({
         "id": "3"
       }
       ]
-    })
+    });
     //刷新缓存
     wx.request({
-      url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
+      url: Config.baseUrl,
       data: {
         c: 'WxLogin',
         a: 'loginPersonalCenter',
@@ -140,26 +164,36 @@ Page({
       // header: {}, // 设置请求的 header    
       success: function (res) {
         console.log(res.data);//data里面是微信api返回的session_key、openid，json格式的字符串
-        var obj = JSON.parse(res.data);//将json格式对象化
-        //obj.openid 获取的openid
-        // obj.expires_in = Date.now() + res.data.expires_in;//存进缓存中，用于在if中判断是否过期
-        // console.log('12300');
-        // wx.setStorageSync('openid', obj.openid);
+        var obj = res.data;//将json格式对象化
+        console.log(obj);
         wx.setStorageSync('type', obj.type);//存储openid+密钥，其实不安全
-        if (wx.getStorageSync("exit") == 1) {
 
-        } else {
+        if (wx.getStorageSync("exit") == 1) {
           if ('1' == obj.type) {
             wx.setStorageSync('id', obj.stu_id);
             wx.setStorageSync('exit', 0);//学生
-          } else if ('2' == obj.type) {
+          } else if (2 == obj.type) {
             wx.setStorageSync('id', obj.tea_id);//已通过的老师
             wx.setStorageSync('exit', 0);
-          } else if ('-1' == obj.type) {
+          } else if (-1 == obj.type) {
             wx.setStorageSync('id', obj.tea_id);//审核中的老师
             wx.setStorageSync('exit', 0);
           } else {
-            wx.setStorageSync('id', '');
+            wx.setStorageSync('id', '没有id');
+          }
+        } 
+        else {
+          if ('1' == obj.type) {
+            wx.setStorageSync('id', obj.stu_id);
+            wx.setStorageSync('exit', 0);//学生
+          } else if (2 == obj.type) {
+            wx.setStorageSync('id', obj.tea_id);//已通过的老师
+            wx.setStorageSync('exit', 0);
+          } else if (-1 == obj.type) {
+            wx.setStorageSync('id', obj.tea_id);//审核中的老师
+            wx.setStorageSync('exit', 0);
+          } else {
+            wx.setStorageSync('id', '没有id');
           }
         }
 
