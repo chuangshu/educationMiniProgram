@@ -12,19 +12,19 @@ Page({
     style: "height:400rpx;width:100%;",
     navData: [
       {
-      "pic": "/pages/images/courses.png",
-      "text": "全部课程",
-      "jumpUrl": "/pages/courseList/courseList"
-    },
-    {
-      "pic": "/pages/images/teacher.png",
-      "text": "找老师",
-      "jumpUrl": "/pages/teacherList/teacherList"
-    }, {
-      "pic": "/pages/images/home.png",
-      "text": "关于我们",
-      "jumpUrl": "/pages/aboutUs/aboutUs"
-    }
+        "pic": "/pages/images/courses.png",
+        "text": "全部课程",
+        "jumpUrl": "/pages/courseList/courseList"
+      },
+      {
+        "pic": "/pages/images/teacher.png",
+        "text": "找老师",
+        "jumpUrl": "/pages/teacherList/teacherList"
+      }, {
+        "pic": "/pages/images/home.png",
+        "text": "关于我们",
+        "jumpUrl": "/pages/aboutUs/aboutUs"
+      }
     ]
 
   },
@@ -56,35 +56,32 @@ Page({
   onLoad: function () {
     var that = this;
     wx.request({
-        url: 'https://47207130.huixuehuijiao.cn/application/controllers/transit_api.php',
-     data:{
-      c: 'WxLoadMessageBoard',
-      a: 'loadAllPass',
-    },
-    method:'GET',
-    header:{
-      'content-type':'application/json'
-    },success:function(res){
-      console.log(res.data)
-      var obj=JSON.parse(res.data);
-      console.log(obj);
-      that.setData({
-        message:obj
-      })
-    }
-    
-    
+      url: 'https://api.huixuehuijiao.cn/tp3/admin.php',
+      data: {
+        c: 'WxLoadMessageBoard',
+        a: 'loadAllPass',
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          message: res.data
+        })
+      }
     })
   },
-  onMessage:function(){
+  onMessage: function () {
     wx.navigateTo({
       url: '/pages/message-detail/message-detail',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
-  onToMessage:function(){
+  onToMessage: function () {
     wx.navigateTo({
       url: '/pages/message/message',
     })

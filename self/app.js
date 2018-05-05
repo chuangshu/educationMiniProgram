@@ -22,7 +22,7 @@ App({
             }
           });
           wx.request({
-            url: 'https://47207130.huixuehuijiao.cn/application/controllers/login_api.php',
+            url: 'https://api.huixuehuijiao.cn/login_api.php',
             data: {
               appid: globalData.globalData.appid,//需要glodata.js
               secret: globalData.globalData.secert,
