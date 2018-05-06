@@ -34,7 +34,7 @@ Page({
       },
       success: function (res) {
         wx.hideLoading();
-        var status = JSON.parse(res.data).status
+        var status = res.data.status
         if (status) {
           wx.hideLoading();
           wx.showModal({

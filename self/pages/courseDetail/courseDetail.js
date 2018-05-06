@@ -346,9 +346,9 @@ Page({
           class_id:classid,
           demo:demo
         }, success: function (res) {
-          var status = JSON.parse(res.data).status
-          var chance = JSON.parse(res.data).chance
-          console.log(JSON.parse(res.data))
+          var status = res.data.status
+          var chance = res.data.chance
+          console.log(res.data)
           if (status == 0) {//status=0，课程没有重复，允许购买
             wx.request({
               url: Config.baseUrl,
@@ -360,7 +360,7 @@ Page({
               }, success: function (res) {
                 var that = this;
                 console.log(tea_id)
-                var obj = JSON.parse(res.data)
+                var obj = res.data
                 console.log(obj)
                 ClsVer = obj.version;
                 if (obj.full == -1) {
@@ -373,7 +373,7 @@ Page({
                       version: ClsVer,//上面保存的版本号
                       demo: demo
                     }, success: function (res) {
-                      var obj = JSON.parse(res.data)
+                      var obj = res.data
                       if (obj.result == 1) {
                         wx.request({
                           url: Config.baseUrl,
@@ -383,7 +383,8 @@ Page({
                             class_id: classid,
                             demo: demo
                           }, success: function (res) {
-                            console.log("开始调用微信支付接口")
+                            console.log("开始调用微信支付接口");
+                            console.log(total_fee);
                             wx.request({
                               url: Config.baseUrl,
                               data: {
@@ -393,12 +394,14 @@ Page({
                                 total_fee: total_fee,//总金额 单位分
                                 openid: openid
                               }, success: function (res) {
-                                console.log('调用了获取prepayid接口'.res)
-                                var obj = JSON.parse(res.data)
-                                obj = JSON.parse(obj)
+                                console.log(res);
+                                console.log('调用了获取prepayid接口'+res)
+                                var obj = res.data
+                                obj = JSON.parse(obj);
                                 var status = obj.status;
                                 var prepay_id = obj.prepay_id;
                                 var pack = "prepay_id=" + prepay_id;
+                                console.log(pack)
                                 var timestamp = Date.parse(new Date());
                                 timestamp = timestamp / 1000 + "";
                                 console.log("当前时间戳为：" + timestamp);
@@ -410,7 +413,7 @@ Page({
                                 console.log(strtemp)
                                 var signtemp = strtemp + "&key=78F3CA5AA793C04CB328B51BFD762B5C";
                                 var sign = MD5(signtemp).toUpperCase();
-                                console.log('开始调用wxrequestpayment接口'.sign);
+                                console.log('开始调用wxrequestpayment接口'+sign);
                                 wx.requestPayment({
                                   'timeStamp': timestamp,
                                   'nonceStr': noncestr,

@@ -66,6 +66,7 @@ Page({
       filePath: this.data.imgSrc,
       name: 'file',
       success: function (res) {
+        console.log(res);
         postData.class_photo = JSON.parse(res.data).photo_url;//将图片外网地址加入到postData中
         //发送注册数据postData到后台
         wx.request({

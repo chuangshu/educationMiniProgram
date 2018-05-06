@@ -74,7 +74,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {//res是一个对象，里面有若干key
-        var obj = JSON.parse(res.data);
+        var obj = res.data;
         console.log(obj)
         that.setData({
           stu_comment: obj

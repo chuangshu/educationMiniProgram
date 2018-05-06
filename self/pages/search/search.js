@@ -37,7 +37,7 @@ Page({
       success: function (res) {
         console.log(res);
         var teacherList = []
-         var tea_List = JSON.parse(res.data)
+         var tea_List = res.data;
         if (tea_List) {
           that.setData({
             isExist: 1

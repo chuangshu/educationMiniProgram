@@ -1,22 +1,28 @@
 <!--pages/teacher/teacher.wxml-->
 <template name="tea_info">
-<image class="bg_img" mode="top" src="/pages/images/userbg.jpg"/>
-<view class="portrait">
-  <!--由数据库动态获取头像URL  -->
-  <image class="por" src="{{tea_info.tea_photo_url}}"></image>
-</view>
-<view style="background-color:#fff">
-  <!--个人信息由数据库获取继而用数据绑定方式实现  -->
-  <view class="hr"></view>
-  <text style="margin-left:30px;">昵称：{{tea_info.tea_name}}</text>
+  <image class="bg_img blur" mode="top" src="{{tea_info.tea_photo_url}}" />
+  <view class="portrait">
+    <!--由数据库动态获取头像URL  -->
+    <image class="por" src="{{tea_info.tea_photo_url}}"></image>
+    <view class='nameANDgender'>
+      <text>{{tea_info.tea_name}}\n</text>
+      <text class='age'>{{tea_info.tea_age}}</text>
+      <image wx:if="{{tea_info.tea_gender == '男'}} " src='../images/men.png' class='gender-icon'></image>
+      <image wx:else src='../images/women.png' class='gender-icon'></image>
+    </view>
+  </view>
 
-<view class="hr"></view>
-<text style=" margin-left:30px;">性别：{{tea_info.tea_gender}}</text>
-<view class="hr"></view>
-<text style=" margin-left:30px;">年龄：{{tea_info.tea_age}}</text>
-<view class="hr"></view>
-<text style="margin-left:30px;">手机号：{{tea_info.tea_tel}}</text>
-<view class="hr"></view>
-<text style="margin-left:30px;">自我介绍：{{tea_info.self_introduction}}</text>
-</view>
+  <view class='detail-container'>
+    <!--个人信息由数据库获取继而用数据绑定方式实现  -->
+    <view class='phone-contianer'>
+      <image src='../images/phone.png' class='icon'></image>
+      <text style="margin-left:10px;">{{tea_info.tea_tel}}</text>
+      <view class="hr"></view>
+    </view>
+
+    <view class='description-container'>
+      <image src='../images/description.png' class='icon'></image>
+      <text style="margin-left:10px;">{{tea_info.self_introduction}}</text>
+    </view>
+  </view>
 </template>

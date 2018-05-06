@@ -1,8 +1,13 @@
 <import src="/pages/teacher/teacher-detail-template.wxml" />
 
 <template is="tea_info" data="{{tea_info}}" />
-<view class="hr"></view>
-<view style="background-color:#fff"><text style="margin-left:30px;">所教课程：</text></view>
-<view style="background-color:#fff" wx:for="{{courseList}}" wx:for-item="course">
+<view class='course-container'>
+  <view class="hr"></view>
+  <view>
+    <image src='../images/course2.png' class='icon'></image>
+    <text style='margin-left:10px;'>课程</text>
+  </view>
+  <view wx:for="{{courseList}}" wx:for-item="course">
     <text style="margin-left:30px;">{{course.grade+course.subject}}</text>
+  </view>
 </view>
