@@ -314,7 +314,7 @@ Page({
     
     var total_fee;
 
-    if (demo == 1) {
+    if (demo == 1) {//购买试听时，固定课程的数量与金额为1分钱和1节课
       total_fee = 1
       num = 1;
     } else {
@@ -334,7 +334,7 @@ Page({
         return;
       }
     }
-    // console.log(classid)
+    //检查用户是否已登录
     if ((user_type == 1) && (exit == 0)) {
       //买课前确认没有重复购课
       wx.request({
@@ -346,9 +346,16 @@ Page({
           class_id:classid,
           demo:demo
         }, success: function (res) {
+          var chance = 0
           var status = res.data.status
-          var chance = res.data.chance
+          chance = res.data.chance
           console.log(res.data)
+
+          if(chance == 1)//1表示还有试听机会
+          {
+            status = 0;//允许购买试听
+          }
+
           if (status == 0) {//status=0，课程没有重复，允许购买
             wx.request({
               url: Config.baseUrl,
@@ -519,7 +526,7 @@ Page({
           }
           else{
             wx.showToast({
-              title: '还有相同课程没上完哦',
+              title: '已相同课程哦',
             })
           }
         }
