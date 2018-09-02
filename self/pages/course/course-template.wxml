@@ -14,7 +14,7 @@
       </view>
       <view class="studentNum">
         <text>招生名额：</text>
-        <text>{{stuName}}</text></view>
+        <text>{{stuCount}}</text></view>
     </view>
   </view>
   <view class="hr"></view>

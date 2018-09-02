@@ -250,7 +250,7 @@ Page({
         var subject = detail.subject;
         var fee = detail.fee;
         var teacher = detail.tea_name;
-        var remain = detail.stu_count;
+        var remain = (detail.number_limit-detail.stu_count);
         var stu_count = detail.number_limit;
         var description = detail.class_introduction;
         var class_photo = detail.class_photo;
@@ -349,6 +349,8 @@ Page({
           var chance = 0
           var status = res.data.status
           chance = res.data.chance
+          console.log(res)
+          console.log(chance)
           console.log(res.data)
 
           if(chance == 1)//1表示还有试听机会
@@ -515,7 +517,7 @@ Page({
                 }
                 else {
                   wx.showToast({
-                    title: '该门课程选课人数已满',
+                    title: '课程人数已满',
                   })
                   // wx.navigateBack({
                   //   delta: 1,
@@ -526,7 +528,7 @@ Page({
           }
           else{
             wx.showToast({
-              title: '已相同课程哦',
+              title: '已相同课程',
             })
           }
         }

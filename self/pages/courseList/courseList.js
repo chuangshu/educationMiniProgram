@@ -71,7 +71,10 @@ Page({
           var teacherImg = course_List[idx].class_photo;
           var courseName = course_List[idx].subject;
           var courseDescription = course_List[idx].class_introduction;
-          var teacher = course_List[idx].tea_id;
+          if (course_List[idx].tea_name.length >= 5) {
+            course_List[idx].tea_name = course_List[idx].tea_name.substring(0, 3) + "..."
+          }
+          var teacher = course_List[idx].tea_name;
           var stuCount = course_List[idx].stu_count;
           if (courseDescription.length >= 25) {
             courseDescription = courseDescription.substring(0, 25) + "..."
@@ -127,7 +130,7 @@ Page({
           var teacherImg = course_List[idx].class_photo;
           var courseName = course_List[idx].subject;
           var courseDescription = course_List[idx].class_introduction;
-          var teacher = course_List[idx].tea_id;
+          var teacher = course_List[idx].tea_name;
           var stuCount = course_List[idx].stu_count;
           if (courseDescription.length >= 25) {
             courseDescription = courseDescription.substring(0, 25) + "..."
